@@ -40,8 +40,7 @@
                           file:rounded-full file:border-0
                           file:text-sm file:font-semibold
                           file:bg-violet-100 file:text-violet-700
-                          hover:file:bg-violet-100
-                        "
+                          hover:file:bg-violet-100"
                         required
                         />
                     </label>
