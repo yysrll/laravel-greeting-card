@@ -28,26 +28,43 @@
                     {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                 </div>
 
-                <!-- Upload Image -->
-                <div class="flex items-center space-x-6 my-6">
-                    <div class="shrink-0">
-                        <img class="h-24 w-24 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
+                <div class="flex justify-center mt-6 mb-16 relative">
+                    <div class="relative w-40">
+                        <div class="shrink-0">
+                            <img id="preview-image" class="h-40 w-40 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
+                        </div>
+                        <div class="absolute top-0 right-0">
+                            <x-primary-button
+                            id="dropdownHoverButton"
+                            type="button"
+                                class="rounded-full"
+                                data-dropdown-toggle="dropdownHover"
+                                >
+                                <p class="text-lg">+</p>
+                            </x-primary-button>
+                        </div>
                     </div>
-                    <label class="block">
-                        <span class="sr-only">Choose profile photo</span>
-                        <input type="file" name="photo" class="block w-full text-sm text-slate-500
-                          file:mr-4 file:py-2 file:px-4
-                          file:rounded-full file:border-0
-                          file:text-sm file:font-semibold
-                          file:bg-violet-100 file:text-violet-700
-                          hover:file:bg-violet-100"
-                        required
-                        />
-                    </label>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownHover" class="hidden absolute top-12 right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                        <li>
+                            <input type="file" name="img" accept="image/*" capture="camera"
+                            class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            >
+                            {{-- <button id="take-picture" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Take from camera</button> --}}
+                        </li>
+                        <li>
+                            <input type="file" id="image" name="image" accept="image/*" onchange="previewImage()"
+                            class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"/>
+                        </li>
+                        </ul>
+                    </div>
                 </div>
+
 
                 <div class="mt-4">
                     <x-primary-button
+                    type="submit"
                     class="block w-full">
                         Generate
                     </x-primary-button>
@@ -59,4 +76,39 @@
 
         </div>
     </div>
+
+
+
+    <script>
+        const dropdownButton = document.getElementById('dropdownHoverButton');
+        const dropdownMenu = document.getElementById('dropdownHover');
+
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        function previewImage() {
+            // Get the selected image
+            var file = document.getElementById("image").files[0];
+
+            // Create a FileReader object
+            var reader = new FileReader();
+
+            // Set the callback function when the reader is done reading the file
+            reader.onload = function(e) {
+                // Create a new image element
+                var img = document.getElementById("preview-image");
+
+                // Set the image source to the result of the reader
+                img.src = e.target.result;
+
+                // Append the image to the preview container
+                // document.getElementById("preview-container").appendChild(img);
+            }
+
+            // Read the file as a Data URL
+            reader.readAsDataURL(file);
+            dropdownMenu.classList.toggle('hidden');
+        }
+    </script>
 </x-app-layout>
