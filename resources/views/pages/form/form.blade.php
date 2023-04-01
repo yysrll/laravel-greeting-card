@@ -4,20 +4,31 @@
 
         </div>
         <div class="col-span-1 m-4 md:m-0">
-            <form method="POST" action="">
+            @if (session('error'))
+                <x-alert>
+                    {{ session('error') }}
+                </x-alert>
+            @endif
+            @if (session('success'))
+                <x-alert>
+                    {{ session('success') }}
+                </x-alert>
+            @endif
+
+            <form method="POST" action="{{ route('greetingcard.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Sender -->
                 <div>
                     <x-input-label for="sender" value="Pengirim" />
-                    <x-text-input id="sender" class="block mt-1 w-full" type="text" name="sender" :value="old('sender')" required autofocus autocomplete="sender" />
+                    <x-text-input id="sender" class="block mt-1 w-full" type="text" name="sender_name" :value="old('sender')" required autofocus autocomplete="sender" />
                     {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                 </div>
 
                 <!-- Receive -->
                 <div>
                     <x-input-label for="recipient" value="Penerima: " />
-                    <x-text-input id="recipient" class="block mt-1 w-full" type="text" name="recipient" :value="old('recipient')" required autofocus autocomplete="recipient" />
+                    <x-text-input id="recipient" class="block mt-1 w-full" type="text" name="recipient_name" :value="old('recipient')" required autofocus autocomplete="recipient" />
                     {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                 </div>
 
@@ -31,7 +42,7 @@
                 <div class="flex justify-center mt-6 mb-16 relative">
                     <div class="relative w-40">
                         <div class="shrink-0">
-                            <img id="preview-image" class="h-40 w-40 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
+                            <img id="preview-image" class="h-40 w-40 object-cover rounded-full" src="https://via.placeholder.com/150?text=upload image" alt="Current profile photo" />
                         </div>
                         <div class="absolute top-0 right-0">
                             <x-primary-button
@@ -54,8 +65,9 @@
                             {{-- <button id="take-picture" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Take from camera</button> --}}
                         </li>
                         <li>
-                            <input type="file" id="image" name="image" accept="image/*" onchange="previewImage()"
-                            class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"/>
+                            <input type="file" id="image" name="photoUrl" accept="image/*" onchange="previewImage()"
+                            class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            required/>
                         </li>
                         </ul>
                     </div>
@@ -78,7 +90,7 @@
     </div>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
     <script>
         const dropdownButton = document.getElementById('dropdownHoverButton');
         const dropdownMenu = document.getElementById('dropdownHover');

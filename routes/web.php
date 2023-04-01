@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GreetingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::get('/', function () {
 Route::get('/create-form', function () {
     return view('pages.form.form');
 })->name('create-form');
+
+Route::resource('greetingcard', GreetingController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

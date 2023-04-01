@@ -13,7 +13,7 @@ class GreetingController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.form.form');
     }
 
     /**
@@ -29,7 +29,20 @@ class GreetingController extends Controller
      */
     public function store(StoreGreetingRequest $request)
     {
-        //
+        try {
+            $req = $request->validated();
+            $timeInUnix = time();
+            $greeting = Greeting::create([
+                'sender_name' => $req['sender_name'],
+                'recipient_name' => $req['recipient_name'],
+                'message' => $req['message'],
+                'photo_url' => $req['photoUrl']->store('public/greetingcard'),
+                'created_time' => $timeInUnix,
+            ]);
+            return redirect()->back()->with('success', 'Greeting card created successfully');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Something went wrong: ' . $th);
+        }
     }
 
     /**
