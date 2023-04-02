@@ -39,7 +39,7 @@ class GreetingController extends Controller
                 'photo_url' => $req['photoUrl']->store('public/greetingcard'),
                 'created_time' => $timeInUnix,
             ]);
-            return redirect()->back()->with('success', 'Greeting card created successfully');
+            return redirect()->route('greetingcard.show', $greeting)->with('success', 'Greeting'. $greeting->sender_name.' card created successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Something went wrong: ' . $th);
         }
@@ -48,9 +48,12 @@ class GreetingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Greeting $greeting)
+    public function show(Greeting $greetingcard)
     {
-        //
+        // dd($greeting->sender_name);
+        return view('pages.preview', [
+            'greeting' => $greetingcard
+        ]);
     }
 
     /**
