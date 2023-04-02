@@ -34,7 +34,7 @@
                 <x-primary-button
                 type="submit"
                 class="block w-full">
-                    Save
+                    Share
                 </x-primary-button>
             </div>
 
