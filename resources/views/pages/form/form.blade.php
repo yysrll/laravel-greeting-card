@@ -12,7 +12,7 @@
             </div>
             <div class="py-4 px-10 md:m-0 pt-8">
                 @if (session('error'))
-                    <x-alert>
+                    <x-alert status="error">
                         {{ session('error') }}
                     </x-alert>
                 @endif

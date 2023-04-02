@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateGreetingRequest;
 use App\Models\Greeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Jorenvh\Share\Share;
 use Jorenvh\Share\ShareFacade;
@@ -88,41 +89,27 @@ class GreetingController extends Controller
     }
 
 
-    public function getImage(Request $request)
+    public function getImage(int $id)
     {
         // try {
-            $url = $request->url;
-
-            $filename = uniqid('image_') . '.png';
-
-            // Define the storage path for the image
-            $storagePath = 'public/greeting/' . $filename;
-
-            $screenshot = Browsershot::url('http://127.0.0.1:8000/greetingcard/6')
+            $screenshot = Browsershot::url(route('greetingcard.show', $id))
             ->select('#picture')
-            // ->fullPage()
+            ->setScreenshotType('jpeg', 100)
+            ->windowSize(1920, 1080)
             ->timeout(60)
             ->screenshot();
-            // ->save(storage_path($storagePath));
 
             return response($screenshot)->header('Content-Type', 'image/jpeg');
-            // ShareFacade::shareImage('', '');
+    }
 
-            // return response()->file($screenshot);
-        // } catch (\Throwable $th) {
-        //     return redirect()->back()->with('error', 'Something went wrong: ' . $th);
-        // }
-
-        // Share the image file using the default device
-        // $imagePath = Storage::url($storagePath);
-        // $imageUrl = url($imagePath);
-        // Artisan::call('share', [
-        //     'url' => $imageUrl
-        // ]);
-
-        // // Return a response with the image URL
-        // return response()->json([
-        //     'url' => $imageUrl
-        // ]);
+    public function downloadImage(Greeting $greeting)
+    {
+        $url = route('getImage', $greeting->id);
+        $imageData = Http::get($url)->body();
+        $headers = [
+            'Content-Type' => 'image/jpeg',
+            'Content-Disposition' => 'attachment; filename="kartu-ucapan-'. $greeting->sender_name .'.jpeg"'
+        ];
+        return response($imageData, 200, $headers);
     }
 }

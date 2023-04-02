@@ -1,4 +1,10 @@
 <x-app-layout>
+    {{-- <x-slot:header>
+        <meta property="og:url" content="{{ route('getImage', $greetingcard->id) }}" />
+        <meta property="og:title" content="Kartu ucapan" />
+        <meta property="og:image" content="{{ route('getImage', $greetingcard->id) }}" />
+    </x-slot> --}}
+
     <div class="md:grid md:grid-cols-3 pt-10">
         <div class="col-span-1">
 
@@ -15,13 +21,13 @@
                 </x-alert>
             @endif
 
-            <div class="relative bg-black " id="picture">
+            <div class="relative bg-black h-[1138px] w-[640px]" id="picture">
                 <div class="">
                     <img src="{{url('images/template.png')}}" alt="">
                 </div>
                 <div class="absolute bottom-[150px] inset-0 flex justify-center items-center z-0">
                     <img
-                    class="h-[22rem] w-[22rem] object-cover"
+                    class="h-[32rem] w-[32rem] object-cover"
                     src="{{ Storage::url($greeting->photo_url) }}" alt="">
                 </div>
                 <div class="absolute top-0 z-10">
@@ -31,11 +37,9 @@
 
 
             <div class="my-4">
-                <x-primary-button
-                type="submit"
-                class="block w-full">
-                    Share
-                </x-primary-button>
+                <a href="{{ route('downloadImage', $greeting->id) }}"
+                    class="block w-full text-center px-16 py-4 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                    >Save</a>
             </div>
 
         </div>
