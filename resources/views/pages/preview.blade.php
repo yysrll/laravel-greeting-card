@@ -15,18 +15,18 @@
                 </x-alert>
             @endif
 
-            <div class="relative bg-black ">
+            <div class="relative bg-black " id="picture">
                 <div class="">
-                    <img src="{{url('images/template.jpeg')}}" alt="">
+                    <img src="{{url('images/template.png')}}" alt="">
                 </div>
-                <div class="absolute bottom-[150px] inset-0 flex justify-center items-center">
+                <div class="absolute bottom-[150px] inset-0 flex justify-center items-center z-0">
                     <img
-                    class="h-72 w-72 object-cover"
+                    class="h-[22rem] w-[22rem] object-cover"
                     src="{{ Storage::url($greeting->photo_url) }}" alt="">
                 </div>
-                {{-- <div class="absolute top-24">
-                    <p>From: {{ $greeting->sender_name }}</p>
-                </div> --}}
+                <div class="absolute top-0 z-10">
+                    <img src="{{url('images/template.png')}}" alt="">
+                </div>
             </div>
 
 
@@ -46,6 +46,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ url('js/share.js') }}"></script>
     <script>
         const dropdownButton = document.getElementById('dropdownHoverButton');
         const dropdownMenu = document.getElementById('dropdownHover');

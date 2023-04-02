@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGreetingRequest;
 use App\Http\Requests\UpdateGreetingRequest;
 use App\Models\Greeting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
+use Jorenvh\Share\Share;
+use Jorenvh\Share\ShareFacade;
+use Spatie\Browsershot\Browsershot;
 
 class GreetingController extends Controller
 {
@@ -51,6 +57,7 @@ class GreetingController extends Controller
     public function show(Greeting $greetingcard)
     {
         // dd($greeting->sender_name);
+        // $shareImage = Share::page('');
         return view('pages.preview', [
             'greeting' => $greetingcard
         ]);
@@ -78,5 +85,44 @@ class GreetingController extends Controller
     public function destroy(Greeting $greeting)
     {
         //
+    }
+
+
+    public function getImage(Request $request)
+    {
+        // try {
+            $url = $request->url;
+
+            $filename = uniqid('image_') . '.png';
+
+            // Define the storage path for the image
+            $storagePath = 'public/greeting/' . $filename;
+
+            $screenshot = Browsershot::url('http://127.0.0.1:8000/greetingcard/6')
+            ->select('#picture')
+            // ->fullPage()
+            ->timeout(60)
+            ->screenshot();
+            // ->save(storage_path($storagePath));
+
+            return response($screenshot)->header('Content-Type', 'image/jpeg');
+            // ShareFacade::shareImage('', '');
+
+            // return response()->file($screenshot);
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->with('error', 'Something went wrong: ' . $th);
+        // }
+
+        // Share the image file using the default device
+        // $imagePath = Storage::url($storagePath);
+        // $imageUrl = url($imagePath);
+        // Artisan::call('share', [
+        //     'url' => $imageUrl
+        // ]);
+
+        // // Return a response with the image URL
+        // return response()->json([
+        //     'url' => $imageUrl
+        // ]);
     }
 }

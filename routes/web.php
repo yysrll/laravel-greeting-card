@@ -23,6 +23,7 @@ Route::get('/create-form', function () {
 })->name('create-form');
 
 Route::resource('greetingcard', GreetingController::class);
+Route::get('/get-image', [GreetingController::class, 'getImage'])->name('getImage');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
