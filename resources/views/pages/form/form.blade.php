@@ -140,7 +140,8 @@
             // Read the file as a Data URL
             reader.readAsDataURL(file);
             dropdownMenu.classList.toggle('hidden');
-            $("#dropdownHoverButton").html('Ubah Gambar');
+            document.getElementById("dropdownHoverButton").innerHTML= 'Ubah Gambar';
+            console.log('testes')
         }
     </script>
 </x-app-layout>
