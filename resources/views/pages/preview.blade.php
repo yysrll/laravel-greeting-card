@@ -7,17 +7,17 @@
 
     </x-slot>
 
-    <div class="md:grid md:grid-cols-3 md:pt-4">
+    <div class="md:grid md:grid-cols-3 pt-4">
         <div class="col-span-1">
 
         </div>
-        <div class="col-span-1 m-4 md:m-0">
-            <div class="flex my-4 mx-4 md:mx-0">
+        <div class="col-span-1">
+            <div class="flex mb-4 mx-4 md:mx-0">
                 <a href="{{ route('greetingcard.show', $id) }}"
-                    class="block w-full text-center px-16 py-4 mr-2 {{ ($type == 1) ? "bg-blue-400 text-white" : "border-2 border-blue-400 text-blue-400" }} border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                    class="block w-full text-center px-16 py-4 mr-2 border {{ ($type == 1) ? " border-transparent bg-blue-400 text-white" : "border-2 border-blue-400 text-blue-400" }} rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
                     >1:1</a>
                 <a href="{{ route('greetingcard.show', $id) }}?is_potrait=0"
-                    class="block w-full text-center px-16 py-4 ml-2 {{ ($type == 0) ? "bg-blue-400 text-white" : "border-2 border-blue-400 text-blue-400" }} border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                    class="block w-full text-center px-16 py-4 ml-2 border {{ ($type == 0) ? " border-transparent bg-blue-400 text-white" : "border-2 border-blue-400 text-blue-400" }} rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
                     >9:16</a>
             </div>
 
@@ -35,6 +35,11 @@
                     onclick="shareImage()"
                     class="text-center px-6 py-4 ml-4 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-none"
                     >Bagikan</a>
+            </div>
+            <div class="my-4 mx-4 md:mx-0">
+                <a href="{{ route('greetingcard.index') }}"
+                    class="block w-full text-center px-16 py-4 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                    >Buat lagi</a>
             </div>
 
         </div>
