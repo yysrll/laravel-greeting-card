@@ -7,18 +7,26 @@
 
     </x-slot>
 
-    <div class="md:grid md:grid-cols-3 pt-10">
+    <div class="md:grid md:grid-cols-3 md:pt-4">
         <div class="col-span-1">
 
         </div>
         <div class="col-span-1 m-4 md:m-0">
+            <div class="flex my-4 mx-4 md:mx-0">
+                <a href=""
+                    class="block w-full text-center px-16 py-4 mr-2 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                    >1:1</a>
+                <a href=""
+                    class="block w-full text-center px-16 py-4 ml-2 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                    >9:16</a>
+            </div>
 
             <div class="w-full" id="picture">
                 <img src="{{ route('getImage', $id) }}" alt="" id="myImage">
             </div>
 
 
-            <div class="flex my-4">
+            <div class="flex my-4 mx-4 md:mx-0">
                 <a href="{{ route('downloadImage', $id) }}"
                     class="block w-full text-center px-16 py-4 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-1"
                     >Save</a>

@@ -38,7 +38,7 @@
                     <img src="{{url('images/template.png')}}" alt="">
                 </div>
                 <div class="absolute z-20 w-full" style="bottom: 10%">
-                    <p class="text-center text-lg text-white underline underline-offset-8">{{ $greeting->sender_name }}</p>
+                    <p class="text-center text-2xl text-white underline underline-offset-8">{{ $greeting->sender_name }}</p>
                 </div>
             </div>
 

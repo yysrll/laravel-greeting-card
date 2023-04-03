@@ -1,11 +1,11 @@
 <x-app-layout>
 
-    <div class="md:grid md:grid-cols-3 bg-white md:bg-gray-200">
+    <div class="grid grid-cols-1 md:grid-cols-3 bg-white md:bg-gray-200">
         <div class="col-span-1">
 
         </div>
         <div class="bg-white col-span-1">
-            <div class="py-6 px-10 bg-blue-400 sticky top-0">
+            <div class="px-4 md:px-10 py-6 bg-blue-400 sticky top-0">
                 <div class="flex justify-start items-center">
                     <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
                 </div>
@@ -26,32 +26,32 @@
                     @csrf
 
                     <!-- Sender -->
-                    <div class="">
+                    <div class="mx-4 md:mx-0">
                         <x-input-label for="sender" value="Pengirim" />
                         <x-text-input id="sender" class="block mt-1 w-full" type="text" name="sender_name" :value="old('sender')" required autofocus autocomplete="sender" />
                         {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                     </div>
 
                     <!-- Receive -->
-                    <div class="mt-6">
+                    <div class="mt-6 mx-4 md:mx-0">
                         <x-input-label for="recipient" value="Penerima: " />
                         <x-text-input id="recipient" class="block mt-1 w-full" type="text" name="recipient_name" :value="old('recipient')" required autofocus autocomplete="recipient" />
                         {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                     </div>
 
                     <!-- greetings -->
-                    <div class="mt-6">
+                    <div class="mt-6 mx-4 md:mx-0">
                         <x-input-label for="message" value="Kalimat ucapan: " />
                         <textarea id="message" name="message" :value="old('message')" required autofocus autocomplete="message" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" rows="5"></textarea>
                         {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                     </div>
 
-                    <div class="flex flex-col mt-16 mb-16">
+                    <div class="flex flex-col my-8 md:my-16">
                         <div class="flex justify-center">
                             <img id="preview-image" class="h-64 w-64 object-cover rounded-full" src="{{ url('images/placeholder.png') }}" alt="Current profile photo" />
                         </div>
                         <input type="file" id="image" name="photoUrl" accept="image/*" onchange="previewImage()"
-                                class="hidden" capture="camera"
+                                class="hidden"
                                 required/>
                         <label
                         id="inputLabel"
@@ -59,37 +59,10 @@
                         style="cursor: pointer;"
                         class="flex justify-center text-blue-400 text-lg mt-4"
                         >Upload/ambil gambar</label>
-                        {{-- <button
-                        type="button"
-                        id="dropdownHoverButton"
-                        class="text-blue-400 text-lg mt-4"
-                        data-dropdown-toggle="dropdownHover"
-                        >
-                            Upload/ambil gambar
-                        </button> --}}
 
                     </div>
 
-
-                        <!-- Dropdown menu -->
-                        {{-- <div id="dropdownHover" class="hidden absolute top-12 right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                            <li>
-                                <input type="file" name="img" accept="image/*" capture="camera"
-                                class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                >
-                                <button id="take-picture" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Take from camera</button>
-                            </li>
-                            <li>
-                                <input type="file" id="image" name="photoUrl" accept="image/*" onchange="previewImage()"
-                                class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                required/>
-                            </li>
-                            </ul>
-                        </div> --}}
-
-
-                    <div class="mt-4 mb-8">
+                    <div class="mt-4 mb-8 mx-4 md:mx-0">
                         <x-primary-button
                         type="submit"
                         class="block w-full py-4">
