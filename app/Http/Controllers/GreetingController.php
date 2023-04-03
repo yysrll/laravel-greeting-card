@@ -57,11 +57,9 @@ class GreetingController extends Controller
      */
     public function show(Greeting $greetingcard)
     {
-        // dd($greeting->sender_name);
-        // $shareImage = Share::page('');
-        return view('pages.preview', [
-            'greeting' => $greetingcard
-        ]);
+        $id = $greetingcard->id;
+        $link = route('getImage', $id);
+        return view('pages.preview', compact(['link', 'id']));
     }
 
     /**
@@ -88,11 +86,19 @@ class GreetingController extends Controller
         //
     }
 
+    public function getTemplate(int $id)
+    {
+        $greetingcard = Greeting::findOrFail($id);
+        return view('pages.template', [
+            'greeting' => $greetingcard
+        ]);
+    }
+
 
     public function getImage(int $id)
     {
         // try {
-            $screenshot = Browsershot::url(route('greetingcard.show', $id))
+            $screenshot = Browsershot::url(route('templateImage', $id))
             ->select('#picture')
             ->setScreenshotType('jpeg', 100)
             ->windowSize(1920, 1080)
