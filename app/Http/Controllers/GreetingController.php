@@ -6,11 +6,7 @@ use App\Http\Requests\StoreGreetingRequest;
 use App\Http\Requests\UpdateGreetingRequest;
 use App\Models\Greeting;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Storage;
-use Jorenvh\Share\Share;
-use Jorenvh\Share\ShareFacade;
 use Spatie\Browsershot\Browsershot;
 
 class GreetingController extends Controller
@@ -55,11 +51,12 @@ class GreetingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Greeting $greetingcard)
+    public function show(Request $request, Greeting $greetingcard)
     {
         $id = $greetingcard->id;
-        $link = route('getImage', $id);
-        return view('pages.preview', compact(['link', 'id']));
+        $type = $request->is_potrait ?? 1;
+        $link = route('getImage', [$id, intval($type)]);
+        return view('pages.preview', compact(['link', 'id', 'type']));
     }
 
     /**
@@ -95,11 +92,11 @@ class GreetingController extends Controller
     }
 
 
-    public function getImage(int $id)
+    public function getImage(int $id, int $index)
     {
         // try {
             $screenshot = Browsershot::url(route('templateImage', $id))
-            ->select('#picture')
+            ->select('#picture', $index)
             ->setScreenshotType('jpeg', 100)
             ->windowSize(1920, 1080)
             ->timeout(60)
@@ -108,9 +105,10 @@ class GreetingController extends Controller
             return response($screenshot)->header('Content-Type', 'image/jpeg');
     }
 
-    public function downloadImage(Greeting $greeting)
+    public function downloadImage(Request $request, Greeting $greeting)
     {
-        $url = route('getImage', $greeting->id);
+        $type = $request->is_potrait ?? 1;
+        $url = route('getImage', [$greeting->id, intval($type)]);
         $imageData = Http::get($url)->body();
         $headers = [
             'Content-Type' => 'image/jpeg',

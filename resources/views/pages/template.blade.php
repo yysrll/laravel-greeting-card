@@ -1,9 +1,9 @@
 
 <x-app-layout>
     <x-slot:meta>
-        <meta property="og:url" content="{{ route('getImage', $greeting->id) }}" />
+        <meta property="og:url" content="{{ route('getImage', [$greeting->id, 0]) }}" />
         <meta property="og:title" content="Kartu ucapan" />
-        <meta property="og:image" content="{{ route('getImage', $greeting->id) }}" />
+        <meta property="og:image" content="{{ route('getImage', [$greeting->id, 0]) }}" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-lsFxiBOH+L9X9l+LEpIqwOsJsqmwMQfZG2rNtTAlTnJez10sKVdNjL9Ia+Lz3d3CJ19rk86wp1mAcKwJDlQGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -39,6 +39,23 @@
                 </div>
                 <div class="absolute z-20 w-full" style="bottom: 10%">
                     <p class="text-center text-2xl text-white underline underline-offset-8">{{ $greeting->sender_name }}</p>
+                </div>
+            </div>
+
+            <div class="relative w-full" id="picture">
+                <div class="">
+                    <img src="{{url('images/template-square.png')}}" alt="" id="myImage">
+                </div>
+                <div class="absolute bottom-[150px] inset-0 flex justify-center items-center z-0">
+                    <img
+                    class="h-3/4 w-1/2 object-cover"
+                    src="{{ Storage::url($greeting->photo_url) }}" alt="">
+                </div>
+                <div class="absolute top-0 z-10">
+                    <img src="{{url('images/template-square.png')}}" alt="">
+                </div>
+                <div class="absolute z-20 w-full" style="bottom: 7%">
+                    <p class="text-center text-2xl text-white">{{ $greeting->sender_name }}</p>
                 </div>
             </div>
 
