@@ -48,39 +48,37 @@
 
                     <div class="flex flex-col mt-16 mb-16">
                         <div class="flex justify-center">
-                            <img id="preview-image" class="h-64 w-64 object-cover rounded-full" src="https://via.placeholder.com/150?text=upload image" alt="Current profile photo" />
+                            <img id="preview-image" class="h-64 w-64 object-cover rounded-full" src="{{ url('images/placeholder.png') }}" alt="Current profile photo" />
                         </div>
-                        {{-- <div class=" w-64">
-                            <div class="">
-                                <x-primary-button
-                                id="dropdownHoverButton"
-                                type="button"
-                                    class="rounded-full"
-                                    data-dropdown-toggle="dropdownHover"
-                                    >
-                                    <p class="text-xl">Upload Foto</p>
-                                </x-primary-button>
-                            </div>
-                        </div> --}}
-                        <button
+                        <input type="file" id="image" name="photoUrl" accept="image/*" onchange="previewImage()"
+                                class="hidden" capture="camera"
+                                required/>
+                        <label
+                        id="inputLabel"
+                        for="image"
+                        style="cursor: pointer;"
+                        class="flex justify-center text-blue-400 text-lg mt-4"
+                        >Upload/ambil gambar</label>
+                        {{-- <button
                         type="button"
                         id="dropdownHoverButton"
                         class="text-blue-400 text-lg mt-4"
                         data-dropdown-toggle="dropdownHover"
                         >
                             Upload/ambil gambar
-                        </button>
+                        </button> --}}
+
                     </div>
 
 
                         <!-- Dropdown menu -->
-                        <div id="dropdownHover" class="hidden absolute top-12 right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                        {{-- <div id="dropdownHover" class="hidden absolute top-12 right-0 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                             <li>
                                 <input type="file" name="img" accept="image/*" capture="camera"
                                 class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                 >
-                                {{-- <button id="take-picture" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Take from camera</button> --}}
+                                <button id="take-picture" class="block w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Take from camera</button>
                             </li>
                             <li>
                                 <input type="file" id="image" name="photoUrl" accept="image/*" onchange="previewImage()"
@@ -88,7 +86,7 @@
                                 required/>
                             </li>
                             </ul>
-                        </div>
+                        </div> --}}
 
 
                     <div class="mt-4 mb-8">
@@ -139,8 +137,7 @@
 
             // Read the file as a Data URL
             reader.readAsDataURL(file);
-            dropdownMenu.classList.toggle('hidden');
-            document.getElementById("dropdownHoverButton").innerHTML= 'Ubah Gambar';
+            document.getElementById("inputLabel").textContent = 'Ubah Gambar';
             console.log('testes')
         }
     </script>
