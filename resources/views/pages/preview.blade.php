@@ -21,17 +21,20 @@
                 </x-alert>
             @endif
 
-            <div class="relative bg-black h-[1138px] w-[640px]" id="picture">
+            <div class="relative w-full" id="picture">
                 <div class="">
                     <img src="{{url('images/template.png')}}" alt="">
                 </div>
-                <div class="absolute bottom-[150px] inset-0 flex justify-center items-center z-0">
+                <div class="absolute bottom-[170px] inset-0 flex justify-center items-center z-0">
                     <img
-                    class="h-[32rem] w-[32rem] object-cover"
+                    class="h-1/2 w-3/4 object-cover"
                     src="{{ Storage::url($greeting->photo_url) }}" alt="">
                 </div>
                 <div class="absolute top-0 z-10">
                     <img src="{{url('images/template.png')}}" alt="">
+                </div>
+                <div class="absolute z-20 w-full" style="bottom: 10%">
+                    <p class="text-center text-lg text-white underline underline-offset-8">{{ $greeting->sender_name }}</p>
                 </div>
             </div>
 
