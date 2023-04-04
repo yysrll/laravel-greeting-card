@@ -83,7 +83,7 @@ class GreetingController extends Controller
         //
     }
 
-    public function getTemplate(int $id)
+    public function getTemplate($id)
     {
         $greetingcard = Greeting::findOrFail($id);
         return view('pages.template', [
@@ -92,7 +92,7 @@ class GreetingController extends Controller
     }
 
 
-    public function getImage(int $id, int $index)
+    public function getImage($id, int $index)
     {
         // try {
             $screenshot = Browsershot::url(route('templateImage', $id))

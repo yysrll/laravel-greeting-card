@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 bg-white md:bg-gray-200">
+    <div class="min-h-screen grid grid-cols-1 md:grid-cols-3 bg-white md:bg-gray-200">
         <div class="col-span-1">
 
         </div>
@@ -27,22 +27,22 @@
 
                     <!-- Sender -->
                     <div class="mx-4 md:mx-0">
-                        <x-input-label for="sender" value="Pengirim" />
-                        <x-text-input id="sender" class="block mt-1 w-full" type="text" name="sender_name" :value="old('sender')" required autofocus autocomplete="sender" />
+                        <x-input-label for="sender" value="Pengirim"/>
+                        <x-text-input id="sender" class="block mt-1 w-full" type="text" name="sender_name" :value="old('sender')" required autofocus autocomplete="sender" maxlength="60"/>
                         {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                     </div>
 
                     <!-- Receive -->
-                    <div class="mt-6 mx-4 md:mx-0">
+                    <div class="mt-6 mx-4 md:mx-0 hidden">
                         <x-input-label for="recipient" value="Penerima: " />
-                        <x-text-input id="recipient" class="block mt-1 w-full" type="text" name="recipient_name" :value="old('recipient')" required autofocus autocomplete="recipient" />
+                        <x-text-input id="recipient" class="block mt-1 w-full" type="text" name="recipient_name" :value="old('recipient')" autofocus autocomplete="recipient" />
                         {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                     </div>
 
                     <!-- greetings -->
-                    <div class="mt-6 mx-4 md:mx-0">
+                    <div class="mt-6 mx-4 md:mx-0 hidden">
                         <x-input-label for="message" value="Kalimat ucapan: " />
-                        <textarea id="message" name="message" :value="old('message')" required autofocus autocomplete="message" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" rows="5"></textarea>
+                        <textarea id="message" name="message" :value="old('message')" autofocus autocomplete="message" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" rows="5"></textarea>
                         {{-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> --}}
                     </div>
 
@@ -65,7 +65,7 @@
                     <div class="mt-4 mb-8 mx-4 md:mx-0">
                         <x-primary-button
                         type="submit"
-                        class="block w-full py-4">
+                        class="w-full py-4">
                             Generate
                         </x-primary-button>
                     </div>

@@ -24,9 +24,9 @@ class StoreGreetingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sender_name' => 'required',
-            'recipient_name' => 'required',
-            'message' => 'required',
+            'sender_name' => 'required|max:60',
+            'recipient_name' => 'max:60',
+            'message' => '',
             'photoUrl' => 'required|mimes:jpeg,jpg,png|max:5000',
         ];
     }
