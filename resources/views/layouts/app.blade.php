@@ -16,6 +16,15 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <style>
+            @font-face {
+                font-family: 'Myriad-Pro-Regular';
+                font-style: normal;
+                src: url('fonts/Myriad-Pro-Regular.ttf');
+            }
+        </style>
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
