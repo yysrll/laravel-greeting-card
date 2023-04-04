@@ -96,6 +96,7 @@ class GreetingController extends Controller
     {
         // try {
             $screenshot = Browsershot::url(route('templateImage', $id))
+            ->setNodeBinary('/usr/local/bin/node')
             ->select('#picture', $index)
             ->setScreenshotType('jpeg', 100)
             ->windowSize(1920, 1080)
