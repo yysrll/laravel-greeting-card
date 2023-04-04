@@ -38,9 +38,9 @@
                     <img src="{{url('images/template.png')}}" alt="">
                 </div>
                 <div class="absolute z-20 w-full" style="bottom: 10%">
-                    <p class="text-center text-2xl text-white underline underline-offset-8"
+                    <p class="px-4 text-center text-3xl text-white underline underline-offset-8"
                     style="font-family: Myriad-Pro-Regular"
-                    >{{ $greeting->sender_name }}</p>
+                    ><u class="text-transparent">.</u>{{ $greeting->sender_name }}<u class="text-transparent">.</u></p>
                 </div>
             </div>
 
@@ -56,10 +56,10 @@
                 <div class="absolute top-0 z-10">
                     <img src="{{url('images/template-square.png')}}" alt="">
                 </div>
-                <div class="absolute z-20 w-full" style="bottom: 7%">
-                    <p class="text-center text-2xl text-white"
+                <div class="absolute z-20 w-full" style="bottom: 3%">
+                    <p class="text-center text-3xl text-white underline underline-offset-8"
                     style="font-family: Myriad-Pro-Regular"
-                    >{{ $greeting->sender_name }}</p>
+                    ><u class="text-transparent">.</u>{{ $greeting->sender_name }}<u class="text-transparent">.</u></p>
                 </div>
             </div>
 

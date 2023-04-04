@@ -43,7 +43,7 @@
                         <textarea id="message" name="message" :value="old('message')" autofocus autocomplete="message" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" rows="5"></textarea>
                     </div>
 
-                    <div class="flex flex-col my-8 md:my-16">
+                    <div class="flex flex-col mt-10 md:mt-16">
                         <div class="flex justify-center">
                             <img id="preview-image" class="h-64 w-64 object-cover rounded-full" src="{{ url('images/placeholder.png') }}" alt="Current profile photo" />
                         </div>
@@ -59,7 +59,7 @@
 
                     </div>
 
-                    <div class="mt-4 mb-8 mx-4 md:mx-0">
+                    <div class="mt-10 md:mt-12 mb-8 mx-4 md:mx-0">
                         <x-primary-button
                         type="submit"
                         class="w-full py-4">
