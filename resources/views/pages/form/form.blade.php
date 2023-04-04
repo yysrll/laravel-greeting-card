@@ -5,7 +5,7 @@
 
         </div>
         <div class="bg-white col-span-1">
-            <div class="px-4 md:px-10 py-6 bg-blue-400 sticky top-0">
+            <div class="px-4 md:px-10 py-6 bg-[#1da1f2] sticky top-0">
                 <div class="flex justify-start items-center">
                     <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
                 </div>
@@ -57,7 +57,7 @@
                         id="inputLabel"
                         for="image"
                         style="cursor: pointer;"
-                        class="flex justify-center text-blue-400 text-lg mt-4"
+                        class="flex justify-center text-[#1da1f2] text-lg mt-4"
                         >Upload/ambil gambar</label>
 
                     </div>
