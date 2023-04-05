@@ -26,8 +26,8 @@
                 </div>
 
                 <div class="flex justify-center mt-6">
-                    <div id="indicator1" class="h-1 w-2 rounded mr-1 bg-gray-500"></div>
-                    <div id="indicator2" class="h-1 w-2 rounded ml-1 bg-gray-500"></div>
+                    <div id="indicator1" class="h-1 w-2 rounded mr-1 bg-[#206EA8]"></div>
+                    <div id="indicator2" class="h-1 w-2 rounded ml-1 bg-[#206EA8]"></div>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
 
             <div class="w-full my-8 flex justify-center" style="bottom: 5%">
                 <a href="{{ route('greetingcard.index') }}"
-                class="text-center w-1/2 py-4 bg-[#1da1f2] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
+                class="text-center w-1/2 py-4 bg-[#206EA8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
                 >Create</a>
             </div>
 
@@ -49,7 +49,7 @@
         var index = 0;
 
         $('#sliderImage2').hide()
-        $('#indicator1').addClass("bg-blue-500")
+        $('#indicator2').addClass("bg-gray-500")
         $('.arrow-button').on("click", function() {
             arrowButton()
         })
@@ -59,15 +59,15 @@
                 $('#sliderImage2').fadeIn()
                 $('#sliderImage').hide()
                 $('#sliderImage2').show()
-                $('#indicator1').removeClass("bg-blue-500")
-                $('#indicator2').addClass("bg-blue-500")
+                $('#indicator2').removeClass("bg-gray-500")
+                $('#indicator1').addClass("bg-gray-500")
                 index = 1
             } else {
                 $('#sliderImage').fadeIn()
                 $('#sliderImage2').hide()
                 $('#sliderImage').show()
-                $('#indicator2').removeClass("bg-blue-500")
-                $('#indicator1').addClass("bg-blue-500")
+                $('#indicator1').removeClass("bg-gray-500")
+                $('#indicator2').addClass("bg-gray-500")
                 index = 0
             }
             console.log('change image '+ index)

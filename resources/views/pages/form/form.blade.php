@@ -5,8 +5,10 @@
 
         </div>
         <div class="bg-white col-span-1 min-h-screen ">
-            <div class="px-4 md:px-10 py-6 bg-[#1da1f2] sticky top-0">
+            <div class="px-4 md:px-10 py-6 bg-[#206EA8] sticky top-0">
                 <div class="flex justify-start items-center">
+                    <img class="h-6 mr-4"
+                    src="{{ url('images/logo-white.png') }}" alt="">
                     <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
                 </div>
             </div>
@@ -54,7 +56,7 @@
                         id="inputLabel"
                         for="image"
                         style="cursor: pointer;"
-                        class="flex justify-center text-[#1da1f2] text-lg mt-4"
+                        class="flex justify-center text-[#206EA8] text-lg mt-4"
                         >Upload/ambil gambar</label>
 
                     </div>
