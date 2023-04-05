@@ -1,9 +1,9 @@
 
 <x-app-layout>
     <x-slot:meta>
-        <meta property="og:url" content="https://media.moddb.com/cache/images/members/5/4550/4549205/thumb_620x2000/duck.jpg" />
+        <meta property="og:url" content="{{ url('images/logo.png') }}" />
         <meta property="og:title" content="bebek" />
-        <meta property="og:image" content="https://media.moddb.com/cache/images/members/5/4550/4549205/thumb_620x2000/duck.jpg" />
+        <meta property="og:image" content="{{ url('images/logo.png') }}" />
 
     </x-slot>
 
@@ -14,7 +14,7 @@
         <div class="col-span-1">
 
             <div class="w-full" id="picture">
-                <img src="https://media.moddb.com/cache/images/members/5/4550/4549205/thumb_620x2000/duck.jpg" alt="" id="myImage">
+                <img src="{{ url('images/logo.png') }}" alt="" id="myImage">
             </div>
 
 
@@ -42,7 +42,6 @@
             // Get the image source URL
             console.log('share start')
             const image = document.getElementById('myImage');
-            const url = "https://media.moddb.com/cache/images/members/5/4550/4549205/thumb_620x2000/duck.jpg"
 
 
             fetch(image.src)
