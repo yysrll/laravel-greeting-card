@@ -40,5 +40,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/test-share', function () {
     return view('testing-share');
 })->name('test');
+Route::get('/resetImageDb', [GreetingController::class, 'resetImageDb'])->name('resetImageDb');
 
 require __DIR__ . '/auth.php';

@@ -6,7 +6,9 @@ use App\Http\Requests\StoreGreetingRequest;
 use App\Http\Requests\UpdateGreetingRequest;
 use App\Models\Greeting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Browsershot\Browsershot;
 
 class GreetingController extends Controller
@@ -115,5 +117,12 @@ class GreetingController extends Controller
             'Content-Disposition' => 'attachment; filename="kartu-ucapan-'. $greeting->sender_name .'.jpeg"'
         ];
         return response($imageData, 200, $headers);
+    }
+
+    public function resetImageDb()
+    {
+        DB::table('greetings')->truncate();
+        Storage::deleteDirectory('public/greetingcard');
+        dd('reset berhasil');
     }
 }
