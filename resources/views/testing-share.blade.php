@@ -42,27 +42,35 @@
             // Get the image source URL
             console.log('share start')
             const image = document.getElementById('myImage');
+            const url = "https://media.moddb.com/cache/images/members/5/4550/4549205/thumb_620x2000/duck.jpg"
 
-            console.log('create share data')
-            const shareData = {
-                title: 'Share Image', // Optional title
-                files: [image.src], // The image file to share
-                text: 'Check out this image!', // Optional text
-            };
 
-            // Check if the share API is available in the browser
+            fetch(image.src)
+                .then(res => res.blob())
+                .then(blob => {
+                    const file = new File([blob], 'duck.jpg', { type: 'image/jpeg' })
+                    console.log(file)
 
-            console.log('send data')
-            if (navigator.share) {
-                // Use the share API to share the image
-                navigator
-                .share(shareData)
-                .then(() => console.log("Shared!"))
-                .catch(err => console.error(err));;
-            } else {
-                // Use a fallback method to share the image
-                alert('Share API is not supported in this browser');
-            }
+                    console.log('create share data')
+                    const shareData = {
+                        title: 'Share Image', // Optional title
+                        files: [file], // The image file to share
+                        text: 'Check out this image!', // Optional text
+                    };
+                    // Check if the share API is available in the browser
+
+                    console.log('send data')
+                    if (navigator.share) {
+                        // Use the share API to share the image
+                        navigator
+                        .share(shareData)
+                        .then(() => console.log("Shared!"))
+                        .catch(err => console.error(err));;
+                    } else {
+                        // Use a fallback method to share the image
+                        alert('Share API is not supported in this browser');
+                    }
+                })
 
             console.log('share end')
         }
