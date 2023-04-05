@@ -3,6 +3,9 @@
         <div class="col-span-1">
         </div>
         <div class="col-span-1 m-4 md:m-0">
+            <div class="w-full flex justify-center mt-4 md:mt-8">
+                <img class="w-1/3" src="{{ url('images/logo.png') }}" alt="">
+            </div>
 
             <div class="relative w-full pt-10 pb-16 px-4">
                 <div class="">
@@ -31,12 +34,12 @@
                 </div>
             </div>
 
-            <p class="flex justify-center text-sm">Buat kartu lebaranmu disini</p>
+            <p class="flex justify-center text-sm">Klik dibawah untuk mulai versi kamu</p>
 
             <div class="w-full my-8 flex justify-center" style="bottom: 5%">
                 <a href="{{ route('greetingcard.index') }}"
                 class="text-center w-1/2 py-4 bg-[#206EA8] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150"
-                >Create</a>
+                >Mulai</a>
             </div>
 
         </div>
