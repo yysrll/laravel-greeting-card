@@ -96,8 +96,6 @@ class GreetingController extends Controller
     {
         // try {
             $screenshot = Browsershot::url(route('templateImage', $id))
-            ->setNodeBinary('~/.asdf/shims/node')
-            ->setNpmBinary('~/.asdf/shims/npm')
             ->select('#picture', $index)
             ->setScreenshotType('jpeg', 100)
             ->windowSize(1920, 1080)

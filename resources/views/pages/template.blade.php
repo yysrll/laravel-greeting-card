@@ -56,7 +56,7 @@
                 <div class="absolute top-0 z-10">
                     <img src="{{url('images/template-square.png')}}" alt="">
                 </div>
-                <div class="absolute z-20 w-full" style="bottom: 3%">
+                <div class="absolute z-20 w-full" style="bottom: 8%">
                     <p class="text-center text-3xl text-white underline underline-offset-8"
                     style="font-family: Myriad-Pro-Regular"
                     ><u class="text-transparent">.</u>{{ $greeting->sender_name }}<u class="text-transparent">.</u></p>

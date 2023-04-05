@@ -1,10 +1,10 @@
 <x-app-layout>
 
-    <div class="min-h-screen grid grid-cols-1 md:grid-cols-3 bg-white md:bg-gray-200">
+    <div class="grid grid-cols-1 md:grid-cols-3 bg-white md:bg-gray-200">
         <div class="col-span-1">
 
         </div>
-        <div class="bg-white col-span-1">
+        <div class="bg-white col-span-1 min-h-screen ">
             <div class="px-4 md:px-10 py-6 bg-[#1da1f2] sticky top-0">
                 <div class="flex justify-start items-center">
                     <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
