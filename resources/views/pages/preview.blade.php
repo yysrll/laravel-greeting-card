@@ -39,11 +39,16 @@
                     style="background-color: rgb(32 110 168);"
                     >Bagikan</a>
             </div>
-            <div class="my-4 mx-4 md:mx-0">
+            <div class="flex justify-center my-4 mx-4 md:mx-0">
                 <a href="{{ route('welcome') }}"
-                    class="block w-full text-center px-16 py-4 border border-transparent rounded-md font-semibold text-xs tracking-widest"
+                    class="block text-center px-16 py-4 border border-transparent rounded-md font-semibold text-xs tracking-widest"
                     style="color: rgb(60 169 73);"
-                    >Buat lagi</a>
+                    >
+                    <div class="flex items-center">
+                        <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-6"> <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/> </svg>
+                        <p class="text-center">Buat lagi</p>
+                    </div>
+                </a>
             </div>
 
         </div>

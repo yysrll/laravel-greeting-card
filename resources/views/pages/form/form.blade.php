@@ -29,7 +29,7 @@
 
                     <!-- Sender -->
                     <div class="mx-4 md:mx-0">
-                        <x-input-label for="sender" value="Pengirim"/>
+                        <x-input-label for="sender" value="Nama"/>
                         <x-text-input id="sender" class="block mt-1 w-full" type="text" name="sender_name" :value="old('sender')" required autofocus autocomplete="sender" maxlength="60"/>
                     </div>
 
