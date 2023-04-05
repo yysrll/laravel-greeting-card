@@ -88,21 +88,35 @@
         }
 
         function shareImage() {
+            // Get the image source URL
+            console.log('share start')
 
-            const shareData = {
-                title: 'Share Image', // Optional title
-                files: [image.src], // The image file to share
-                text: 'Check out this image!', // Optional text
-            };
-
-            // Check if the share API is available in the browser
+            console.log('send data')
             if (navigator.share) {
-                // Use the share API to share the image
-                navigator.share(shareData);
+                fetch(image.src)
+                    .then(res => res.blob())
+                    .then(blob => {
+                        // Check if the share API is available in the browser
+                        const file = new File([blob], 'kartu-ucapan.jpg', { type: 'image/jpeg' })
+                        console.log(file)
+
+                        console.log('create share data')
+                        const shareData = {
+                            title: 'Share Image', // Optional title
+                            files: [file], // The image file to share
+                        };
+                        // Use the share API to share the image
+                        navigator
+                        .share(shareData)
+                        .then(() => console.log("Shared!"))
+                        .catch(err => console.error(err));;
+                    })
             } else {
                 // Use a fallback method to share the image
-                alert('Share API is not supported in this browser');
+                alert('Fitur ini tidak support dengan browser anda, silahkan simpan gambar untuk dibagikan');
             }
+
+            console.log('share end')
         }
     </script>
 </x-app-layout>
