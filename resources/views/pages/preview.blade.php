@@ -23,8 +23,13 @@
                     >Potrait</a>
             </div>
 
+            <div id="loading" class="flex justify-center items-center m-24">
+                <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#3CA949]"></div>
+            </div>
+
+
             <div class="w-full" id="picture">
-                <img src="{{ route('getImage', [$id, $type]) }}" alt="" id="myImage">
+                <img src="" alt="" id="myImage">
             </div>
 
 
@@ -32,12 +37,11 @@
                 <a href="{{ route('downloadImage', $id) }}?is_potrait={{ $type }}"
                     class="block w-full text-center px-16 py-4 bg-[#3CA949] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-1"
                     >Save</a>
-                <a
-                    href="javascript:void(0)"
+                <button
                     onclick="shareImage()"
                     class="text-center px-6 py-4 ml-4 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-none"
                     style="background-color: rgb(32 110 168);"
-                    >Bagikan</a>
+                    >Bagikan</button>
             </div>
             <div class="flex justify-center my-4 mx-4 md:mx-0">
                 <a href="{{ route('welcome') }}"
@@ -62,10 +66,28 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <script src="{{ url('js/share.js') }}"></script>
     <script>
+        // Get the image source URL
+        const image = document.getElementById('myImage');
+        const link = "{{ route('getImage', [$id, $type]) }}"
+        loadImage(link)
+
+        function loadImage(url) {
+            // Show loading
+            $('#loading').show()
+            // Create a new image object
+            const img = new Image();
+
+            // Set the image source
+            img.src = url;
+
+            // When the image has loaded, set the image source to the image element
+            img.onload = () => {
+                image.src = url;
+                $('#loading').hide()
+            };
+        }
 
         function shareImage() {
-            // Get the image source URL
-            const image = document.getElementById('myImage');
 
             const shareData = {
                 title: 'Share Image', // Optional title
