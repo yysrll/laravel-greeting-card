@@ -27,12 +27,12 @@ class StoreGreetingRequest extends FormRequest
             'sender_name' => 'required|max:60',
             'recipient_name' => 'max:60',
             'message' => '',
-            'photoUrl' => 'required|mimes:jpeg,jpg,png|max:5000',
+            'photoUrl' => 'required|max:10000',
         ];
     }
 
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException(redirect()->back()->with('error', 'Terjadi kesalahan: ' . $validator->errors()->first()));
+        throw new HttpResponseException(redirect()->back()->with('error', 'Terjadi kesalahan: ' . $validator->errors()));
     }
 }
