@@ -121,7 +121,6 @@ class GreetingController extends Controller
 
     public function resetImageDb()
     {
-        DB::table('greetings')->truncate();
         Storage::deleteDirectory('public/greetingcard');
         dd('reset berhasil');
     }
