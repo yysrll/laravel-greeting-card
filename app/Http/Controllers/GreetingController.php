@@ -58,7 +58,7 @@ class GreetingController extends Controller
         $id = $greetingcard->id;
         $type = $request->is_potrait ?? 1;
         $link = route('getImage', [$id, intval($type)]);
-        return view('pages.preview', compact(['link', 'id', 'type']));
+        return view('pages.preview', compact(['link', 'id', 'type', 'greetingcard']));
     }
 
     /**
