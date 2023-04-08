@@ -35,13 +35,13 @@
 
 
                 <div class="flex my-4 mx-4 md:mx-0">
-                <button
-                    onclick="downloadImage()"
-                    class="block w-full text-center px-16 py-4 bg-[#3CA949] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-1"
+                    <button
+                        onclick="downloadImage()"
+                        class="block w-full text-center px-16 py-4 bg-[#3CA949] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-green-300 focus:bg-green-300 active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-1"
                         >Save</button>
                     <button
                         onclick="shareImage()"
-                        class="text-center px-6 py-4 ml-4 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-blue-300 focus:bg-blue-300 active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-none"
+                        class="text-center px-6 py-4 ml-4 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-green-300 focus:bg-green-300 active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-none"
                         style="background-color: rgb(32 110 168);"
                         >Bagikan</button>
                 </div>
@@ -107,26 +107,30 @@
                 fetch(image.src)
                     .then(res => res.blob())
                     .then(blob => {
-                        // Check if the share API is available in the browser
-                        const file = new File([blob], 'kartu-ucapan.jpg', { type: 'image/jpeg' })
-                        console.log(file)
+                        try {
+                            // Check if the share API is available in the browser
+                            const file = new File([blob], 'kartu-ucapan.jpg', { type: 'image/jpeg' })
+                            console.log(file)
 
-                        console.log('create share data')
-                        const shareData = {
-                            title: 'Share Image', // Optional title
-                            files: [file], // The image file to share
-                        };
-                        // Use the share API to share the image
-                        navigator
-                        .share(shareData)
-                        .then(() => {
-                            console.log("Shared!")
+                            console.log('create share data')
+                            const shareData = {
+                                files: [file], // The image file to share
+                            };
+                            // Use the share API to share the image
+                            navigator
+                            .share(shareData)
+                            .then(() => {
+                                console.log("Shared!")
+                                $('#loading').hide()
+                            })
+                            .catch(err => {
+                                console.log(err)
+                                $('#loading').hide()
+                            });
+                        } catch (error) {
                             $('#loading').hide()
-                        })
-                        .catch(err => {
-                            console.error(err)
-                            $('#loading').hide()
-                        });;
+                            alert('Gagal memuat, ' + error)
+                        }
                     })
             } else {
                 // Use a fallback method to share the image

@@ -7,10 +7,10 @@
             </div>
             <div class="bg-white col-span-1 min-h-screen ">
                 <div class="px-4 md:px-10 py-6 bg-[#3CA949] sticky top-0">
-                    <div class="flex justify-start items-center">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
                         <img class="h-6 mr-4"
                         src="{{ url('images/logo-white.png') }}" alt="">
-                        <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
                     </div>
                 </div>
                 <div class="py-4 px-10 md:m-0 pt-8">
@@ -62,15 +62,27 @@
 
                         </div>
 
-                        <div class="mt-10 md:mt-12 mb-8 mx-4 md:mx-0">
+                        <div class="mt-20 md:mt-24 mx-4 md:mx-0">
                             <x-primary-button
                             id="generateButton"
                             type="submit"
                             class="w-full py-4">
-                                Generate
+                                Buat Kartu
                             </x-primary-button>
                         </div>
+
                     </form>
+
+                    <div class="flex justify-center mb-4 mx-4 md:mx-0">
+                        <a href="{{ route('welcome') }}"
+                            class="block text-center text-[#206EA8] px-16 py-4 border border-transparent rounded-md font-semibold text-xs tracking-widest"
+                            >
+                            <div class="flex items-center">
+                                <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="w-6"> <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/> </svg>
+                                <p class="text-center">Kembali</p>
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
 
@@ -91,7 +103,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
     <script>
         const generateButton = document.getElementById('generateButton');
-        // $('#loading').hide()
+        $('#loading').hide()
 
         generateButton.addEventListener('click', () => {
         });
