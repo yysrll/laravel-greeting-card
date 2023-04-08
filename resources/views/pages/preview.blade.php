@@ -38,7 +38,7 @@
                     <button
                         onclick="downloadImage()"
                         class="block w-full text-center px-16 py-4 bg-[#3CA949] border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-green-300 focus:bg-green-300 active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-1"
-                        >Save</button>
+                        >Simpan</button>
                     <button
                         onclick="shareImage()"
                         class="text-center px-6 py-4 ml-4 border border-transparent rounded-md font-semibold text-xs text-white tracking-widest hover:bg-green-300 focus:bg-green-300 active:bg-green-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 flex-none"
