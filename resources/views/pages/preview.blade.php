@@ -13,7 +13,7 @@
 
             </div>
             <div class="col-span-1">
-                <div class="flex mb-4 mx-4 md:mx-0 px-4 pt-6 bg-[#206EA8] sticky top-0">
+                <div class="flex mb-4 md:mx-0 px-4 pt-6 bg-[#206EA8] sticky top-0">
                     <a href="{{ route('greetingcard.show', $id) }}"
                         class="flex-1 px-auto py-4 mr-1 text-center font-bold text-sm tracking-wides rounded-t-lg {{ $type == 1 ? 'text-[#206EA8] bg-white' : 'text-white bg-blue-300/40' }}"
                         >Square</a>
