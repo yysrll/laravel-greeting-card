@@ -13,7 +13,7 @@
 
             </div>
             <div class="col-span-1">
-                <div class="flex mb-4 md:mx-0 px-4 pt-6 bg-[#206EA8] sticky top-0">
+                <div class="flex mb-4 px-4 pt-6 bg-[#206EA8] sticky top-0">
                     <a href="{{ route('greetingcard.show', $id) }}"
                         class="flex-1 px-auto py-4 mr-1 text-center font-bold text-sm tracking-wides rounded-t-lg {{ $type == 1 ? 'text-[#206EA8] bg-white' : 'text-white bg-blue-300/40' }}"
                         >Square</a>
@@ -62,7 +62,7 @@
 
         <div id="loading" class="absolute flex justify-center items-center top-0 left-0 z-10 w-screen h-full bg-gray-700 bg-opacity-60">
             <div class="bg-white p-10 rounded-lg">
-                <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#206EA8]"></div>
+                <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#3CA949]"></div>
             </div>
         </div>
     </div>
