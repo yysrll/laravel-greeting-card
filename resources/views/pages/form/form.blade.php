@@ -253,6 +253,7 @@
         }
 
         $("#generateButton").click(function (event) {
+            $('#loading').show()
             console.log('submit')
             //stop submit the form, we will post it manually.
             event.preventDefault();
@@ -285,8 +286,10 @@
                 error: function (xhr, status, error) {
                     console.log("ERROR : ", error);
                     alert(`Error, ${error}`)
+                    $('#loading').hide()
                 }
             });
+
         });
 
         function b64toBlob(b64Data, contentType, sliceSize) {
