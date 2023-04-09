@@ -29,9 +29,9 @@
                 <div class="">
                     <img src="{{url('images/template.png')}}" alt="" id="myImage">
                 </div>
-                <div class="absolute bottom-[170px] inset-0 flex justify-center items-center z-0">
+                <div class="absolute w-[68%] top-[21%] left-[19%] z-0">
                     <img
-                    class="h-1/2 w-3/4 object-cover"
+                    class="w-full"
                     src="{{ Storage::url($greeting->photo_url) }}" alt="">
                 </div>
                 <div class="absolute top-0 z-10">
@@ -48,9 +48,9 @@
                 <div class="">
                     <img src="{{url('images/template-square.png')}}" alt="" id="myImage">
                 </div>
-                <div class="absolute bottom-[150px] inset-0 flex justify-center items-center z-0">
+                <div class="absolute w-[42%] top-[15%] left-[31%] z-0">
                     <img
-                    class="h-3/4 w-1/2 object-cover"
+                    class="w-full"
                     src="{{ Storage::url($greeting->photo_url) }}" alt="">
                 </div>
                 <div class="absolute top-0 z-10">

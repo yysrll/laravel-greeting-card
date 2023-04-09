@@ -44,9 +44,14 @@ class GreetingController extends Controller
                 'photo_url' => $req['photoUrl']->store('public/greetingcard'),
                 'created_time' => $timeInUnix,
             ]);
-            return redirect()->route('greetingcard.show', $greeting)->with('success', 'Greeting'. $greeting->sender_name.' card created successfully');
+
+            return response()->json([
+                'url' => route('greetingcard.show', $greeting)
+            ], 200);
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Something went wrong: ' . $th);
+            return response()->json([
+                'message' => 'Something went wrong: ' . $th
+            ], 400);
         }
     }
 
