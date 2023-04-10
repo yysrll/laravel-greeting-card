@@ -12,7 +12,7 @@
             <div class="bg-white col-span-1 min-h-screen ">
                 <div class="px-4 md:px-10 py-6 bg-[#206EA8] sticky top-0">
                     <div class="flex justify-between items-center">
-                        <h1 class="text-2xl text-white font-bold">Isi Data Kamu</h1>
+                        <h1 class="text-xl text-white font-bold">Isi Data Kamu</h1>
                         <img class="h-6 mr-4"
                         src="{{ url('images/logo-white.png') }}" alt="">
                     </div>
@@ -105,7 +105,8 @@
             </div>
             <div class="bg-white col-span-1 min-h-screen ">
                 <div class="px-4 md:px-10 py-6 bg-[#206EA8] sticky top-0">
-                    <div class="flex justify-end items-center">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-xl text-white font-bold">Atur posisi dan perbesaran</h1>
                         <button
                             id="btnClose"
                             class="p-2 bg-blue-300/30 rounded-md"

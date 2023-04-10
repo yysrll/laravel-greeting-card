@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <p class="flex justify-center text-sm">Klik dibawah untuk buat versi kamu</p>
+            <p class="flex justify-center text-sm">Buat Kartu Lebaran versi kamu yuk!</p>
 
             <div class="w-full my-8 flex justify-center" style="bottom: 5%">
                 <a href="{{ route('greetingcard.index') }}"

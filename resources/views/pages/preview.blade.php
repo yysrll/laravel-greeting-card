@@ -19,7 +19,7 @@
                         >Square</a>
                     <a href="{{ route('greetingcard.show', $id) }}?is_potrait=0"
                         class="flex-1 px-auto py-4 ml-1 text-center font-bold text-sm tracking-wides rounded-t-lg {{ $type == 0 ? 'text-[#206EA8] bg-white' : 'text-white bg-blue-300/40' }}"
-                        >Potrait</a>
+                        >Portrait</a>
                 </div>
 
                 {{-- <div id="loading" class="flex justify-center items-center m-24">
